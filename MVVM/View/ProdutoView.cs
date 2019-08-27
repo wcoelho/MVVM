@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using MVVM.ViewModel;
@@ -10,6 +10,7 @@ namespace MVVM.View
     public class Form1 : Form
     {
         public Button button1;
+        public Button button2;
         public TextBox textbx;
         public TextBox textbxId;
         public TextBox textbxName;
@@ -38,9 +39,16 @@ namespace MVVM.View
             button1 = new Button();
             button1.Size = new Size(100, 30);
             button1.Location = new Point(170, 30);
-            button1.Text = "Clique";
+            button1.Text = "Procurar";
             this.Controls.Add(button1);
             button1.Click += new EventHandler(button1_ClickAsync);
+
+            button2 = new Button();
+            button2.Size = new Size(100, 30);
+            button2.Location = new Point(170, 70);
+            button2.Text = "Limpar";
+            this.Controls.Add(button2);
+            button2.Click += new EventHandler(button2_ClickAsync);
 
             labelId = new Label();
             labelId.Size = new Size(40, 30);
@@ -82,11 +90,25 @@ namespace MVVM.View
 
             
         }
-        
- 
+
+        private void button2_ClickAsync(object sender, EventArgs e)
+        {
+            this.clean();
+        }
+
+
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
-            
+
+            if (textbx.Text == "")
+            {
+                labelRes.Text = "Digite uma palavra";
+                startTimer();
+                return;
+            }
+
+
+
             ProdutoViewModel prodVM = new ProdutoViewModel();
 
             prodVM.Criterio = textbx.Text;
@@ -97,13 +119,27 @@ namespace MVVM.View
                 textbxId.Text = prodVM.Produtos[0].Id.ToString();
                 textbxName.Text = prodVM.Produtos[0].Nome;
                 textbxPrice.Text = prodVM.Produtos[0].Preco.ToString();
+
             } else
             {
-                this.clean();
                 labelRes.Text = "Nenhum resultado";
+                startTimer();
             }
 
             System.Console.WriteLine("@Voltei à View");
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            clean();
+        }
+
+        private void startTimer()
+        {
+            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+            t.Interval = 3000;
+            t.Tick += new EventHandler(timer_Tick);
+            t.Start();
         }
 
         private void clean()
@@ -112,6 +148,7 @@ namespace MVVM.View
             textbxId.Text = "";
             textbxName.Text = "";
             textbxPrice.Text = "";
+            labelRes.Text = "";
         }
 
         [STAThread]
