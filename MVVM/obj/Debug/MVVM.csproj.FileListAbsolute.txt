@@ -1,0 +1,8 @@
+e:\Library\Desktop\PosPuc\APA\Projeto\Ativ6\MVVM\MVVM\bin\Debug\MVVM.exe.config
+e:\Library\Desktop\PosPuc\APA\Projeto\Ativ6\MVVM\MVVM\bin\Debug\MVVM.exe
+e:\Library\Desktop\PosPuc\APA\Projeto\Ativ6\MVVM\MVVM\bin\Debug\MVVM.pdb
+e:\Library\Desktop\PosPuc\APA\Projeto\Ativ6\MVVM\MVVM\obj\Debug\MVVM.csprojResolveAssemblyReference.cache
+e:\Library\Desktop\PosPuc\APA\Projeto\Ativ6\MVVM\MVVM\obj\Debug\MVVM.exe
+e:\Library\Desktop\PosPuc\APA\Projeto\Ativ6\MVVM\MVVM\obj\Debug\MVVM.pdb
+e:\Library\Desktop\PosPuc\APA\Projeto\Ativ6\MVVM\MVVM\obj\Debug\MVVM.View.Form1.resources
+e:\Library\Desktop\PosPuc\APA\Projeto\Ativ6\MVVM\MVVM\obj\Debug\MVVM.csproj.GenerateResource.Cache
